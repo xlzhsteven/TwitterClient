@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString * const UserDidLoginNotification;
+extern NSString * const UserDidLogoutNotification;
+
 @interface User : NSObject
 @property (nonatomic, strong) NSString * name;
 @property (nonatomic, strong) NSString *screenName;
@@ -15,5 +18,10 @@
 @property (nonatomic, strong) NSString *tagLine;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
++ (User *)currentuser;
++ (void)setCurrentUser:(User *)currentuser;
+
++ (void)logOut;
 
 @end

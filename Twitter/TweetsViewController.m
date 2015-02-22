@@ -1,24 +1,29 @@
 //
-//  LoginViewController.m
+//  TweetsViewController.m
 //  Twitter
 //
 //  Created by Xiaolong Zhang on 2/21/15.
 //  Copyright (c) 2015 Xiaolong Zhang. All rights reserved.
 //
 
-#import "LoginViewController.h"
-#import "TwitterClient.h"
 #import "TweetsViewController.h"
+#import "User.h"
+#import "TwitterClient.h"
+#import "Tweet.h"
 
-@interface LoginViewController ()
+@interface TweetsViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation TweetsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    [[TwitterClient sharedInstance] homeTimelineWithParams:nil completion:^(NSArray *tweets, NSError *error) {
+        for (Tweet *tweet in tweets) {
+            NSLog(@"The text of the tweet is: %@", tweet.text);
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,15 +31,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)userLogin:(id)sender {
-    [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
-        if (user != nil) {
-            NSLog(@"Welcome to %@", user.name);
-            [self presentViewController:[[TweetsViewController alloc] init] animated:YES completion:nil];
-        } else {
-            // error view
-        }
-    }];
+- (IBAction)logOut:(id)sender {
+    [User logOut];
 }
 
 /*
