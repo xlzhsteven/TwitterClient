@@ -8,6 +8,10 @@
 
 #import "Tweet.h"
 
+@interface Tweet ()
+@property (nonatomic, strong) NSDate *createdAt;
+@end
+
 @implementation Tweet
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
@@ -19,7 +23,8 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
         self.createdAt = [formatter dateFromString:createdAtString];
-        
+        NSDate *now = [NSDate date];
+        self.minPassed = [now timeIntervalSinceDate:self.createdAt]/60;
     }
     return self;
 }

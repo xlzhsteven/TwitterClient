@@ -18,6 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Log in to Twitter";
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -30,7 +31,9 @@
     [[TwitterClient sharedInstance] loginWithCompletion:^(User *user, NSError *error) {
         if (user != nil) {
             NSLog(@"Welcome to %@", user.name);
-            [self presentViewController:[[TweetsViewController alloc] init] animated:YES completion:nil];
+            TweetsViewController *vc = [[TweetsViewController alloc] init];
+            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nvc animated:YES completion:nil];
         } else {
             // error view
         }
