@@ -7,6 +7,7 @@
 //
 
 #import "TweetsViewController.h"
+#import "ComposeTweetViewController.h"
 #import "User.h"
 #import "TwitterClient.h"
 #import "Tweet.h"
@@ -49,7 +50,9 @@
 }
 
 - (void)composeTweet {
-    
+    ComposeTweetViewController *vc = [[ComposeTweetViewController alloc] init];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (void) fetchData {
