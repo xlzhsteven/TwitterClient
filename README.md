@@ -27,5 +27,4 @@ Time spent: 20 hours
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
 
 ### Walkthrough
-
-![Video Walkthrough](...)
+<img src="https://cloud.githubusercontent.com/assets/3433026/6323013/82bb8614-bad6-11e4-99b7-6f765488506e.gif" alt="" width="300">
