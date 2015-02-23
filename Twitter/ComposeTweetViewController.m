@@ -29,7 +29,7 @@
     
     UIButton *sendTweetbutton =  [UIButton buttonWithType:UIButtonTypeCustom];
     [sendTweetbutton setImage:[UIImage imageNamed:@"sendTweetButton.png"] forState:UIControlStateNormal];
-    [sendTweetbutton addTarget:self action:@selector(onSend) forControlEvents:UIControlEventTouchUpInside];
+    [sendTweetbutton addTarget:self action:@selector(onSend:) forControlEvents:UIControlEventTouchUpInside];
     [sendTweetbutton setFrame:CGRectMake(0, 0, 32, 32)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:sendTweetbutton];
     
@@ -41,8 +41,13 @@
     
     self.currentUser = [User currentuser];
     [self.profileImageView setImageWithURL:[NSURL URLWithString:self.currentUser.profileImageUrl]];
+    self.profileImageView.layer.cornerRadius = 3;
+    self.profileImageView.clipsToBounds = YES;
     self.screenNameLabel.text = self.currentUser.screenName;
     self.nameLabel.text = self.currentUser.name;
+    if (self.tweet) {
+        self.userEntryTextField.text = [NSString stringWithFormat:@"@%@", self.tweet.user.screenName];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,12 +55,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)onSend {
+- (void)onSend:(UIButton *)sender {
     NSString *content = self.userEntryTextField.text;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:content forKey:@"status"];
     [[TwitterClient sharedInstance] sendTweet:params completion:nil];
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)onCancel {

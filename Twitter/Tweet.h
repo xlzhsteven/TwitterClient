@@ -13,6 +13,10 @@
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, assign) int minPassed;
 @property (nonatomic, strong) User *user;
+@property (nonatomic, strong) NSString *favoriteCount;
+@property (nonatomic, strong) NSString *retweetCount;
+@property (nonatomic, strong) NSString *idString;
+@property (nonatomic, assign) NSNumber *favTrack;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;
 

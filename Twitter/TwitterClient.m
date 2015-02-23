@@ -85,4 +85,30 @@ NSString * const kTwitterBaseUrl = @"https://api.twitter.com";
     }];
 }
 
+- (void)reTweet:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion {
+    [self POST:[NSString stringWithFormat:@"1.1/statuses/retweet/%@.json", params[@"id"]] parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"retweets successfully");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"unsuccessful retweets ");
+    }];
+}
+
+- (void)favTweet:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion {
+    [self POST:@"1.1/favorites/create.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"fav created");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"unsuccessful post tweets ");
+    }];
+}
+
+- (void)unfavTweet:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion {
+    [self POST:@"1.1/favorites/destroy.json" parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"fav destroyed");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"unsuccessful post tweets ");
+    }];
+}
+
+
+
 @end

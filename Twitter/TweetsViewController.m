@@ -13,8 +13,9 @@
 #import "Tweet.h"
 #import "TweetSimpleCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "TweetDetailViewController.h"
 
-@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, TweetSimpleCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *tweets;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
@@ -98,12 +99,43 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     Tweet *tweet = self.tweets[indexPath.row];
     TweetSimpleCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TweetSimpleCell"];
+    cell.delegate = self;
+    cell.tweet = tweet;
     [cell.userProfileImageView setImageWithURL:[NSURL URLWithString:tweet.user.profileImageUrl]];
+    cell.userProfileImageView.layer.cornerRadius = 3;
+    cell.userProfileImageView.clipsToBounds = YES;
     cell.nameLabel.text = tweet.user.name;
     cell.screenNameLabel.text = [NSString stringWithFormat:@"@%@", tweet.user.screenName];
     cell.timePassedLabel.text = [NSString stringWithFormat:@"%dm", tweet.minPassed];
     cell.tweetLabel.text = tweet.text;
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    Tweet *tweet = self.tweets[indexPath.row];
+    TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
+    vc.tweet = tweet;
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nvc animated:YES completion:nil];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onFavorite:(BOOL)value{
+    [self.tableView reloadData];
+}
+
+- (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onReply:(Tweet *)tweet{
+    ComposeTweetViewController *vc = [[ComposeTweetViewController alloc] init];
+    vc.tweet = tweet;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nvc animated:YES completion:nil];
+}
+
+- (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onRetweet:(BOOL)value{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:tweetSimpleCell.tweet.idString forKey:@"id"];
+    [[TwitterClient sharedInstance] reTweet:params completion:nil];
 }
 
 

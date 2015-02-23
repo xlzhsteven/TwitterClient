@@ -21,4 +21,9 @@
 
 - (void)sendTweet:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion;
 
+- (void)reTweet:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion;
+
+- (void)favTweet:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion;
+
+- (void)unfavTweet:(NSDictionary *)params completion:(void(^)(NSArray *tweets, NSError *error))completion;
 @end
