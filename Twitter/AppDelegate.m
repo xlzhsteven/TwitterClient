@@ -12,6 +12,7 @@
 #import "TwitterClient.h"
 #import "User.h"
 #import "Tweet.h"
+#import "CenterViewController.h"
 
 @interface AppDelegate ()
 
@@ -27,8 +28,9 @@
     User *user = [User currentuser];
     if (user != nil) {
         NSLog(@"Welcome back! %@", user.name);
-        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
-        
+//        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[TweetsViewController alloc] init]];
+//        self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[CenterViewController alloc] init]];
+        self.window.rootViewController = [[CenterViewController alloc] init];
     } else {
         NSLog(@"Not logged in");
         self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
