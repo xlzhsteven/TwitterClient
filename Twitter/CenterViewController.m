@@ -8,27 +8,39 @@
 
 #import "CenterViewController.h"
 #import "TweetsViewController.h"
-#import "LeftMenuViewController.h"
-#import "LeftMenuViewController.h"
+#import "ProfileCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "User.h"
+#define ProfileCellIndex 0
+#define HomeTimeLineCellIndex 1
+#define MentionsCellIndex 2
 
-@interface CenterViewController ()
+@interface CenterViewController () <UITableViewDataSource, UITableViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet UIView *menuView;
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSArray *tableViewContent;
 @end
 
 @implementation CenterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableViewContent = @[@"Your Profile",@"Home Timeline",@"Mentions View"];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"ProfileCell" bundle:nil] forCellReuseIdentifier:@"ProfileCell"];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 80;
+    
     TweetsViewController *tweetsViewController = [[TweetsViewController alloc] init];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:tweetsViewController];
     [self.contentView addSubview:nvc.view];
     [self addChildViewController:nvc];
     
-    LeftMenuViewController *lmv = [[LeftMenuViewController alloc] init];
-    [self.menuView addSubview:lmv.view];
-    [self addChildViewController:lmv];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -40,9 +52,6 @@
     CGPoint velocity = [sender velocityInView:self.contentView];
     CGPoint endLocation = CGPointMake(400, 284);
     CGPoint beginLocation = CGPointMake(160, 284);
-//    LeftMenuViewController *lvc = [[LeftMenuViewController alloc] init];
-//    [self.view addSubview:lvc.view];
-//    [self addChildViewController:lvc];
     
     if (sender.state == UIGestureRecognizerStateBegan) {
         NSLog(@"begin");
@@ -57,6 +66,37 @@
             }];
         }
     }
+}
+
+#pragma mark - Table View methods
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.tableViewContent.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == ProfileCellIndex) {
+        ProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileCell"];
+        User *currentUser = [User currentuser];
+        
+        [cell.profileImageView setImageWithURL:[NSURL URLWithString:currentUser.profileImageUrl]];
+        cell.nameLabel.text = currentUser.name;
+        cell.screenNameLabel.text = [NSString stringWithFormat:@"@%@", currentUser.screenName];
+        return cell;
+    } else {
+        UITableViewCell *cell = [[UITableViewCell alloc] init];
+        cell.textLabel.text = self.tableViewContent[indexPath.row];
+        return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == HomeTimeLineCellIndex) {
+        
+    }
+    [UIView animateWithDuration:0.5 animations:^{
+        self.contentView.center = CGPointMake(160, 284);
+    }];
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /*
