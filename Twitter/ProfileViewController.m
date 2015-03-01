@@ -24,7 +24,7 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     
-    self.title = @"Me";
+    self.title = self.caller.name;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(onDone)];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"ProfileTFFCell" bundle:nil] forCellReuseIdentifier:@"ProfileTFFCell"];
@@ -53,12 +53,12 @@
     
     if (indexPath.row == HeaderIndex) {
         ProfileHeaderCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileHeaderCell"];
-        cell.user = [User currentuser];
+        cell.user = self.caller;
         return cell;
     } else if (indexPath.row == TFFIndex) {
         ProfileTFFCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ProfileTFFCell"];
         self.tableView.rowHeight = 44;
-        cell.user = [User currentuser];
+        cell.user = self.caller;
         return cell;
     } else {
         UITableViewCell *cell = [[UITableViewCell alloc] init];

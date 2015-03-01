@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class User;
 @interface ProfileViewController : UIViewController
-
+@property (nonatomic, strong) User *caller;
 @end

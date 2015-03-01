@@ -96,6 +96,7 @@
         
     } else if (indexPath.row == ProfileCellIndex) {
         ProfileViewController *vc = [[ProfileViewController alloc] init];
+        vc.caller = [User currentuser];
         UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nvc animated:YES completion:nil];
     } else if (indexPath.row == MentionsCellIndex) {
