@@ -11,6 +11,7 @@
 #import "ProfileCell.h"
 #import "UIImageView+AFNetworking.h"
 #import "User.h"
+#import "ProfileViewController.h"
 #define ProfileCellIndex 0
 #define HomeTimeLineCellIndex 1
 #define MentionsCellIndex 2
@@ -92,10 +93,18 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == HomeTimeLineCellIndex) {
         
+    } else if (indexPath.row == ProfileCellIndex) {
+        ProfileViewController *vc = [[ProfileViewController alloc] init];
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nvc animated:YES completion:nil];
+    } else if (indexPath.row == MentionsCellIndex) {
+        
     }
+    
     [UIView animateWithDuration:0.5 animations:^{
         self.contentView.center = CGPointMake(160, 284);
     }];
+    
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 

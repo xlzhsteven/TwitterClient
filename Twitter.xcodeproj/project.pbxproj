@@ -24,6 +24,10 @@
 		CE6EE7021AA281B8003AB64F /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EE7001AA281B8003AB64F /* ProfileCell.xib */; };
 		CE6EE7061AA28865003AB64F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE7041AA28865003AB64F /* ProfileViewController.m */; };
 		CE6EE7071AA28865003AB64F /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EE7051AA28865003AB64F /* ProfileViewController.xib */; };
+		CE6EE70B1AA28FA6003AB64F /* ProfileHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE7091AA28FA6003AB64F /* ProfileHeaderCell.m */; };
+		CE6EE70C1AA28FA6003AB64F /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EE70A1AA28FA6003AB64F /* ProfileHeaderCell.xib */; };
+		CE6EE7101AA28FCB003AB64F /* ProfileTFFCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE70E1AA28FCB003AB64F /* ProfileTFFCell.m */; };
+		CE6EE7111AA28FCB003AB64F /* ProfileTFFCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EE70F1AA28FCB003AB64F /* ProfileTFFCell.xib */; };
 		CEE5C6331A993F4500C597EE /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5C6321A993F4500C597EE /* Tweet.m */; };
 		CEE5C6361A993F4D00C597EE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5C6351A993F4D00C597EE /* User.m */; };
 		CEE5C63A1A9979A100C597EE /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5C6381A9979A100C597EE /* TweetsViewController.m */; };
@@ -75,6 +79,12 @@
 		CE6EE7031AA28865003AB64F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		CE6EE7041AA28865003AB64F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		CE6EE7051AA28865003AB64F /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		CE6EE7081AA28FA6003AB64F /* ProfileHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderCell.h; sourceTree = "<group>"; };
+		CE6EE7091AA28FA6003AB64F /* ProfileHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderCell.m; sourceTree = "<group>"; };
+		CE6EE70A1AA28FA6003AB64F /* ProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileHeaderCell.xib; sourceTree = "<group>"; };
+		CE6EE70D1AA28FCB003AB64F /* ProfileTFFCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTFFCell.h; sourceTree = "<group>"; };
+		CE6EE70E1AA28FCB003AB64F /* ProfileTFFCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTFFCell.m; sourceTree = "<group>"; };
+		CE6EE70F1AA28FCB003AB64F /* ProfileTFFCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTFFCell.xib; sourceTree = "<group>"; };
 		CEE5C6311A993F4500C597EE /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		CEE5C6321A993F4500C597EE /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		CEE5C6341A993F4D00C597EE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -217,6 +227,12 @@
 				CE6EE6FE1AA281B8003AB64F /* ProfileCell.h */,
 				CE6EE6FF1AA281B8003AB64F /* ProfileCell.m */,
 				CE6EE7001AA281B8003AB64F /* ProfileCell.xib */,
+				CE6EE7081AA28FA6003AB64F /* ProfileHeaderCell.h */,
+				CE6EE7091AA28FA6003AB64F /* ProfileHeaderCell.m */,
+				CE6EE70A1AA28FA6003AB64F /* ProfileHeaderCell.xib */,
+				CE6EE70D1AA28FCB003AB64F /* ProfileTFFCell.h */,
+				CE6EE70E1AA28FCB003AB64F /* ProfileTFFCell.m */,
+				CE6EE70F1AA28FCB003AB64F /* ProfileTFFCell.xib */,
 			);
 			name = TableCell;
 			sourceTree = "<group>";
@@ -328,6 +344,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6EE7111AA28FCB003AB64F /* ProfileTFFCell.xib in Resources */,
 				CE0AF6EC1A9A96FE00DD6630 /* TweetDetailViewController.xib in Resources */,
 				CE6EE6F81AA03CC7003AB64F /* CenterViewController.xib in Resources */,
 				CEE5C63B1A9979A100C597EE /* TweetsViewController.xib in Resources */,
@@ -335,6 +352,7 @@
 				CE54B0931A992FF800AA83D9 /* Images.xcassets in Resources */,
 				CE0AF6E71A9A50A100DD6630 /* ComposeTweetViewController.xib in Resources */,
 				CE6EE7021AA281B8003AB64F /* ProfileCell.xib in Resources */,
+				CE6EE70C1AA28FA6003AB64F /* ProfileHeaderCell.xib in Resources */,
 				CEF0530D1A9930DF00EAD2BE /* LoginViewController.xib in Resources */,
 				CE6EE7071AA28865003AB64F /* ProfileViewController.xib in Resources */,
 				CE0AF6E21A99C48E00DD6630 /* TweetSimpleCell.xib in Resources */,
@@ -393,7 +411,9 @@
 				CE54B08B1A992FF800AA83D9 /* AppDelegate.m in Sources */,
 				CEE5C6361A993F4D00C597EE /* User.m in Sources */,
 				CE0AF6E61A9A50A100DD6630 /* ComposeTweetViewController.m in Sources */,
+				CE6EE7101AA28FCB003AB64F /* ProfileTFFCell.m in Sources */,
 				CE6EE6F71AA03CC7003AB64F /* CenterViewController.m in Sources */,
+				CE6EE70B1AA28FA6003AB64F /* ProfileHeaderCell.m in Sources */,
 				CE0AF6E11A99C48E00DD6630 /* TweetSimpleCell.m in Sources */,
 				CEE5C6331A993F4500C597EE /* Tweet.m in Sources */,
 				CE54B0881A992FF800AA83D9 /* main.m in Sources */,
