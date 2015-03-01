@@ -28,6 +28,8 @@
 		CE6EE70C1AA28FA6003AB64F /* ProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EE70A1AA28FA6003AB64F /* ProfileHeaderCell.xib */; };
 		CE6EE7101AA28FCB003AB64F /* ProfileTFFCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE70E1AA28FCB003AB64F /* ProfileTFFCell.m */; };
 		CE6EE7111AA28FCB003AB64F /* ProfileTFFCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EE70F1AA28FCB003AB64F /* ProfileTFFCell.xib */; };
+		CE6EE7151AA2D4B3003AB64F /* MentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE7131AA2D4B3003AB64F /* MentionsViewController.m */; };
+		CE6EE7161AA2D4B3003AB64F /* MentionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE6EE7141AA2D4B3003AB64F /* MentionsViewController.xib */; };
 		CEE5C6331A993F4500C597EE /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5C6321A993F4500C597EE /* Tweet.m */; };
 		CEE5C6361A993F4D00C597EE /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5C6351A993F4D00C597EE /* User.m */; };
 		CEE5C63A1A9979A100C597EE /* TweetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE5C6381A9979A100C597EE /* TweetsViewController.m */; };
@@ -85,6 +87,9 @@
 		CE6EE70D1AA28FCB003AB64F /* ProfileTFFCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileTFFCell.h; sourceTree = "<group>"; };
 		CE6EE70E1AA28FCB003AB64F /* ProfileTFFCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileTFFCell.m; sourceTree = "<group>"; };
 		CE6EE70F1AA28FCB003AB64F /* ProfileTFFCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileTFFCell.xib; sourceTree = "<group>"; };
+		CE6EE7121AA2D4B3003AB64F /* MentionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MentionsViewController.h; sourceTree = "<group>"; };
+		CE6EE7131AA2D4B3003AB64F /* MentionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MentionsViewController.m; sourceTree = "<group>"; };
+		CE6EE7141AA2D4B3003AB64F /* MentionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MentionsViewController.xib; sourceTree = "<group>"; };
 		CEE5C6311A993F4500C597EE /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
 		CEE5C6321A993F4500C597EE /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
 		CEE5C6341A993F4D00C597EE /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -258,6 +263,9 @@
 				CE6EE7031AA28865003AB64F /* ProfileViewController.h */,
 				CE6EE7041AA28865003AB64F /* ProfileViewController.m */,
 				CE6EE7051AA28865003AB64F /* ProfileViewController.xib */,
+				CE6EE7121AA2D4B3003AB64F /* MentionsViewController.h */,
+				CE6EE7131AA2D4B3003AB64F /* MentionsViewController.m */,
+				CE6EE7141AA2D4B3003AB64F /* MentionsViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -351,6 +359,7 @@
 				CE54B0961A992FF800AA83D9 /* LaunchScreen.xib in Resources */,
 				CE54B0931A992FF800AA83D9 /* Images.xcassets in Resources */,
 				CE0AF6E71A9A50A100DD6630 /* ComposeTweetViewController.xib in Resources */,
+				CE6EE7161AA2D4B3003AB64F /* MentionsViewController.xib in Resources */,
 				CE6EE7021AA281B8003AB64F /* ProfileCell.xib in Resources */,
 				CE6EE70C1AA28FA6003AB64F /* ProfileHeaderCell.xib in Resources */,
 				CEF0530D1A9930DF00EAD2BE /* LoginViewController.xib in Resources */,
@@ -421,6 +430,7 @@
 				CEF0530C1A9930DF00EAD2BE /* LoginViewController.m in Sources */,
 				CEE5C63A1A9979A100C597EE /* TweetsViewController.m in Sources */,
 				CE0AF6EB1A9A96FE00DD6630 /* TweetDetailViewController.m in Sources */,
+				CE6EE7151AA2D4B3003AB64F /* MentionsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

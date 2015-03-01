@@ -31,6 +31,12 @@
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         formatter.dateFormat = @"EEE MMM d HH:mm:ss Z y";
         self.createdAt = [formatter dateFromString:createdAtString];
+        
+        NSDateFormatter *printDateFormatter = [[NSDateFormatter alloc] init];
+        [printDateFormatter setDateStyle:NSDateFormatterShortStyle];
+        [printDateFormatter setTimeStyle:NSDateFormatterNoStyle];
+        self.createdAtString = [printDateFormatter stringFromDate:self.createdAt];
+        
         NSDate *now = [NSDate date];
         self.minPassed = [now timeIntervalSinceDate:self.createdAt]/60;
     }

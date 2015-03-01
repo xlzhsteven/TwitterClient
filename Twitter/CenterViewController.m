@@ -12,6 +12,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "User.h"
 #import "ProfileViewController.h"
+#import "MentionsViewController.h"
 #define ProfileCellIndex 0
 #define HomeTimeLineCellIndex 1
 #define MentionsCellIndex 2
@@ -98,7 +99,9 @@
         UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
         [self presentViewController:nvc animated:YES completion:nil];
     } else if (indexPath.row == MentionsCellIndex) {
-        
+        MentionsViewController *vc = [[MentionsViewController alloc] init];
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+        [self presentViewController:nvc animated:YES completion:nil];
     }
     
     [UIView animateWithDuration:0.5 animations:^{
