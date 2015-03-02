@@ -13,6 +13,7 @@
 #import "Tweet.h"
 #import "TweetSimpleCell.h"
 #import "UIImageView+AFNetworking.h"
+#import "ProfileViewController.h"
 #import "TweetDetailViewController.h"
 
 @interface TweetsViewController () <UITableViewDataSource, UITableViewDelegate, TweetSimpleCellDelegate>
@@ -116,6 +117,8 @@
     TweetDetailViewController *vc = [[TweetDetailViewController alloc] init];
     vc.tweet = tweet;
     
+    
+    
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nvc animated:YES completion:nil];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -138,5 +141,11 @@
     [[TwitterClient sharedInstance] reTweet:params completion:nil];
 }
 
+- (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onTap:(Tweet *)tweet {
+    ProfileViewController *vc = [[ProfileViewController alloc] init];
+    vc.caller = tweet.user;
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:nvc animated:YES completion:nil];
+}
 
 @end

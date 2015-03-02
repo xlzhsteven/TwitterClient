@@ -9,6 +9,8 @@
 #import "TweetSimpleCell.h"
 #import "ComposeTweetViewController.h"
 #import "TwitterClient.h"
+#import "ProfileViewController.h"
+#import "TweetsViewController.h"
 
 @interface TweetSimpleCell ()
 @property (weak, nonatomic) IBOutlet UIButton *favIcon;
@@ -17,7 +19,10 @@
 @implementation TweetSimpleCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTap)];
+    singleTap.numberOfTapsRequired = 1;
+    [self.userProfileImageView setUserInteractionEnabled:YES];
+    [self.userProfileImageView addGestureRecognizer:singleTap];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -51,5 +56,8 @@
     }
 }
 
+- (void) onTap {
+    [self.delegate TweetSimpleCell:self onTap:self.tweet];
+}
 
 @end

@@ -23,13 +23,10 @@
     [super viewDidLoad];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
-    
+    [self.tableView setTableFooterView:[[UIView alloc] initWithFrame:CGRectZero]];
     self.title = self.caller.name;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(onDone)];
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"ProfileTFFCell" bundle:nil] forCellReuseIdentifier:@"ProfileTFFCell"];
-    
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"ProfileHeaderCell" bundle:nil] forCellReuseIdentifier:@"ProfileHeaderCell"];
     self.tableView.rowHeight = 180;
     // Do any additional setup after loading the view from its nib.
@@ -47,6 +44,10 @@
 #pragma mark - Table View methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 2;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

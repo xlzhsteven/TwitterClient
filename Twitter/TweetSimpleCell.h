@@ -15,6 +15,7 @@
 - (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onFavorite:(BOOL)value;
 - (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onReply:(Tweet *)tweet;
 - (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onRetweet:(BOOL)value;
+- (void)TweetSimpleCell:(TweetSimpleCell *)tweetSimpleCell onTap:(Tweet *)tweet;
 
 @end
 
