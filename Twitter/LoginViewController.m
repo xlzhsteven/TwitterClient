@@ -9,16 +9,13 @@
 #import "LoginViewController.h"
 #import "TwitterClient.h"
 #import "TweetsViewController.h"
-
 @interface LoginViewController ()
-
 @end
 
 @implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"Log in to Twitter";
     // Do any additional setup after loading the view from its nib.
 }
 
