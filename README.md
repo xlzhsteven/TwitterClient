@@ -2,7 +2,7 @@
 
 Hamberger view for Twitter client
 
-Time spent:
+Time spent: 10 hours
 
 ### Features
 
